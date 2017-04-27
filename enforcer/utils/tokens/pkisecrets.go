@@ -56,7 +56,7 @@ func (p *PKISecrets) EncodingKey() interface{} {
 func (p *PKISecrets) DecodingKey(server string, ackCert interface{}, prevCert interface{}) (interface{}, error) {
 
 	// If we have a cache of certificates, just look there
-	if p.CertificateCache != nil {
+	if len(p.CertificateCache) > 0 {
 		cert, ok := p.CertificateCache[server]
 
 		if !ok {
